@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Technical Documentation</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header>Introductory CSS</header>
+        <ul>
+            <li class="nav-section">
+                <a class="nav-link" href="#What_is_CSS?">What is CSS?</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Specificity">Specificity</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Weight_category_selector">Weight category selector</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Basic_Box-Model">Basic Box-Model</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Content_area">Content area</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Padding_area">Padding area</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Border_area">Border area</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#Margin_area">Margin area</a>
+            </li>
+            <li class="nav-section">
+                <a class="nav-link" href="#References">References</a>
+            </li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="What_is_CSS?">
+            <header>What is CSS?</header>
+            <article>
+                <p>
+                    CSS, which stands for Cascading Style Sheets, is a declarative language that controls the appearance of web pages in the browser. The browser applies CSS style declarations to selected elements to display them correctly. A style declaration contains the properties and their respective values, which determine how a web page will look.
+                </p>
+                <p>
+                    CSS is one of the three main web technologies, along with HTML and JavaScript. CSS usually styles (HTML elements), but it can also be used with other markup languages ​​like SVG or XML.
+                </p>
+                <p>
+                    The term "cascading" refers to the rules that determine how selectors are nested when changing the appearance of a web page. This is a very important feature, as a complex website can contain thousands of CSS rules.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Specificity">
+            <header>Specifity</header>
+            <article>
+                <p>
+                    Specificity is one of the key concepts of CSS. It is the way in which browsers resolve conflicts if several rules are applied to the same element, deciding which styles are most relevant and therefore which ones will be applied.
+                </p>
+                <p>
+                    Unlike other languages, CSS doesn't throw an error or break if it encounters a line it can't parse while reading. The CSS cascade reads from top to bottom, filters and classifies the rules according to their importance, if it cannot parse a value it will take it as invalid and therefore ignore it.
+                </p>   
+                <div>
+                    <p>
+                        What happens when there is a match of elements? When there is a CSS conflict, it takes the last value written. If the conflict is in the importance of the styles, the browser will make a calculation to resolve which style is more relevant.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        How is the score taken? The more specific a style is, the more likely it will be applied. For this, the browser determines by means of "weights" or scores which style is the most relevant for an element.
+                    </p>
+                </div>
+            </article>
+        </section>
+        <section class="main-section" id="Weight_category_selector">
+            <header>Weight category selector</header>
+            <article>
+                <p>
+                    The selector weight categories are listed here in decreasing order of specificity:
+                </p>
+                <p><code>!important</code> 1,0,0,0,0</p>
+                <ul>
+                    <li>Rewrite any style.</li>
+                    <li>For the browser it is of high priority.</li>
+                    <li>It must be avoided or used with great caution.</li>
+                </ul>
+                <p>Online styles 0,1,0,0,0</p>
+                <ul>
+                    <li>Inline styles will apply new styles over others, even if they already have classes or IDs.</li>
+                </ul>
+                <p>#ID 0,0,1,0,0</p>
+                <ul>
+                    <li>IDs have more weight than classes and labels.</li>
+                    <li>But since they are unique, it is preferable to use them for functionality than for styles.</li>
+                </ul>
+                <p>.Classes, attributes and pseudo classes 0,0,0,1,0</p>
+                <ul>
+                    <li>It's better to use classes to give styles, combined with a methodology like BEM you will have a manageable specificity.</li>
+                </ul>
+                <p>Elements 0,0,0,0,1</p>
+                <ul>
+                    <li>The styles applied to elements are the most basic and easy to rewrite.</li>
+                </ul>
+                <p>Universal Selector</p>
+                <ul>
+                    <li>The universal selector has no weight and will be overridden by any other rule.</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Basic_Box-Model">
+            <header>Basic Box-Model</header>
+            <article>
+                <p>
+                    When styling a document, the browser's rendering engine renders each element as a rectangular box according to the standard CSS basic box model. CSS determines the size, position, and properties (color, background, border size, etc.) of these boxes.
+                </p>
+                <p>
+                    Each box is made up of four parts (or areas), defined by their respective borders: the content border, the padding border, the border border, and the margin border.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Content_area">
+            <header>Content area</header>
+            <article>
+                <p>
+                    The content area, bounded by the content edge, contains the "real" content of the element, such as text, an image, or a video player. Its dimensions are the content width (or content-box width) and the content height (or content-box height). It often has a background color or background image. 
+                </p>
+                <p>
+                    If the <code>box-sizing</code> property is set to <code>content-box</code> (default) and if the element is a block element, the content area's size can be explicitly defined with the <code>width</code>, <code>min-width</code>, <code>max-width</code>, <code>height</code>, <code>min-height</code>, and <code>max-height</code> properties.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Padding_area">
+            <header>Padding area</header>
+            <article>
+                <p>
+                    The padding area, bounded by the padding edge, extends the content area to include the element's padding. Its dimensions are the padding-box width and the padding-box height.
+                </p>
+                <p>
+                    The thickness of the padding is determined by the <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code>, and shorthand <code>padding</code> properties.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Border_area">
+            <header>Border area</header>
+            <article>
+                <p>
+                    The border area, bounded by the border edge, extends the padding area to include the element's borders. Its dimensions are the border-box width and the border-box height.
+                </p>
+                <p>
+                    The thickness of the borders are determined by the <code>border-width</code> and shorthand <code>border</code> properties. If the <code>box-sizing</code> property is set to <code>border-box</code>, the border area's size can be explicitly defined with the <code>width</code>, <code>min-width</code>, <code>max-width</code>, <code>height</code>, <code>min-height</code>, and <code>max-height</code> properties. When there is a background (<code>background-color</code> or <code>background-image</code>) set on a box, it extends to the outer edge of the border (i.e. extends underneath the border in z-ordering). This default behavior can be altered with the <code>background-clip</code> CSS property.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="Margin_area">
+            <header>Margin area</header>
+            <article>
+                <p>
+                    The margin area, bounded by the margin edge, extends the border area to include an empty area used to separate the element from its neighbors. Its dimensions are the margin-box width and the margin-box height.
+                </p>
+                <p>
+                    The size of the margin area is determined by the <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, <code>margin-left</code>, and shorthand <code>margin</code> properties. When margin collapsing occurs, the margin area is not clearly defined since margins are shared between boxes.
+                </p>
+                <p>
+                    Finally, note that for non-replaced inline elements, the amount of space taken up (the contribution to the height of the line) is determined by the <code>line-height</code> property, even though the borders and padding are still displayed around the content.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="References">
+            <header>References</header>
+            <article>
+                <ul>
+                    <li>All the documentation in this page is taken from <a id="mozilla" href="https://developer.mozilla.org/es/docs/Glossary/CSS" target="_blank">Developer Mozilla</a>.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+<script>
+    const navLinks = document.querySelectorAll('li.nav-section');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+</script>
+</html>
